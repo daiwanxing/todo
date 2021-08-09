@@ -10,6 +10,10 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = merge(baseBuildConf, {
     devtool: "cheap-module-source-map",
     devServer: {
+        overlay: {
+            warnings: true,
+            errors: true
+        }, // 出现编译错误， 浏览器全屏覆盖
         compress: true,
         open: true,
         port: 8888

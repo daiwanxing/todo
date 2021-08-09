@@ -3,7 +3,6 @@ const { VueLoaderPlugin  } = require("vue-loader");
 const path = require("path");
 const { Configuration } = require("webpack");
 
-
 /**
  * @type {Configuration}
  */
@@ -26,7 +25,8 @@ module.exports = {
                 test: /\.css$/,
                 use: [
                     'vue-style-loader',
-                    'css-loader'
+                    'css-loader',
+                    'postcss-loader'
                 ]
             },
             {
@@ -34,7 +34,8 @@ module.exports = {
                 use: [
                     'vue-style-loader',
                     'css-loader',
-                    'sass-loader'
+                    'sass-loader',
+                    'postcss-loader'
                 ]
             }
         ]
