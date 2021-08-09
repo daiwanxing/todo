@@ -1,21 +1,16 @@
 <template>
-    <div>
-        <h1>MY TODO APP</h1>
-        <input type="text" placeholder="1232131" />
-    </div>
+    <main>
+        <router-view></router-view>
+    </main>
 </template>
 
 
-<style scoped lang="scss">
-h1 {
-    display: flex;
-    padding: 100px 0;
-    text-align: center;
-    font-size: 60px;
-    color: #2970ff;
+<style lang="scss">
+html, body {
+    height: 100%;
 }
 
-input::placeholder {
-  color: red;
+main {
+    height: 100%;
 }
 </style>

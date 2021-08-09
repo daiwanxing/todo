@@ -44,8 +44,10 @@ module.exports = {
         new VueLoaderPlugin(),
         new CleanWebpackPlugin()
     ],
+    target: "web",
     resolve: {
         alias: {
+            vue: process.env.NODE_ENV == 'production' ? 'vue/dist/vue.min.js' : 'vue/dist/vue.js',
             '@': path.join(__dirname, '..', 'src')
         }
     },

@@ -16,6 +16,7 @@ module.exports = merge(baseBuildConf, {
         }, // 出现编译错误， 浏览器全屏覆盖
         compress: true,
         open: true,
+        hot: true,
         port: 8888
     },
     plugins: [
