@@ -52,8 +52,9 @@ module.exports = {
         }
     },
     optimization: {
+        // chunk 分割
         splitChunks: {
-            chunks: "async",
+            chunks: "async", // all async all 是将所有的chunk都单独打包
             minSize: 20000,
             minChunks: 1
         }
