@@ -1,6 +1,7 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const { VueLoaderPlugin  } = require("vue-loader");
 const path = require("path");
+const htmlWebpackPlugin = require("html-webpack-plugin");
 const { Configuration } = require("webpack");
 
 /**
@@ -42,7 +43,11 @@ module.exports = {
     },
     plugins: [
         new VueLoaderPlugin(),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new htmlWebpackPlugin({
+            title: "MicroHard Todo",
+            template: path.join(__dirname, '..', 'index.html')
+        })
     ],
     target: "web",
     resolve: {

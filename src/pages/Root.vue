@@ -6,7 +6,7 @@
             <div class="icon-box">
                 <font-awesome-icon icon="check-circle" class="icon-color" />
             </div>
-            MicroHard ToDo
+            MicroHard Todo
         </div>
         <ul class="base-menu">
             <li class="menu-item" 
@@ -56,6 +56,10 @@ export default {
     background-color: #feffff;
     overflow-y: auto;
     user-select: none;
+    
+    .icon-box {
+        padding-right: 20px;
+    }
 
     .icon-color {
         color: #768adb;
@@ -69,6 +73,7 @@ export default {
     }
 
     .brand-logo {
+        display: flex;
         padding-left: 20px;
         line-height: 50px;
         font-size: 24px;
@@ -83,7 +88,7 @@ export default {
         cursor: pointer;
         padding: 14px 0;
         font-size: 16px;
-        transition: .25s all ease-in;
+        transition: .25s background ease-in, .1s transform ease-in;
         color: #647783;
 
         .left-icon {
@@ -113,7 +118,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 414px) {
   aside {
     display: none;
   }
