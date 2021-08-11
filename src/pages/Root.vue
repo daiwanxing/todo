@@ -2,9 +2,19 @@
   <section class="todo-container">
     <!-- 左侧列表 -->
     <aside>
-        <div class="brand-logo">MicroHard ToDo</div>
+        <div class="brand-logo">
+            <div class="icon-box">
+                <font-awesome-icon icon="check-circle" class="icon-color" />
+            </div>
+            MicroHard ToDo
+        </div>
         <ul class="base-menu">
-            <li class="menu-item" v-for="item in baseMenu" :key="item.id">
+            <li class="menu-item" 
+                v-for="item in baseMenu"
+                :key="item.id"
+                :class="{active: activeIndex === item.id}"
+                @click="switchHandler(item.id)"
+            >
                 <div class="left-icon"><font-awesome-icon :icon="item.icon" /></div>
                 {{ item.name }} 
             </li>
@@ -22,7 +32,13 @@ export default {
     name: "root",
     data () {
         return {
+            activeIndex: -1,
             baseMenu
+        }
+    },
+    methods: {
+        switchHandler (tog) {
+            this.activeIndex = tog;
         }
     }
 }
@@ -39,6 +55,11 @@ export default {
     width: 300px;
     background-color: #feffff;
     overflow-y: auto;
+    user-select: none;
+
+    .icon-color {
+        color: #768adb;
+    }
 
     .base-menu {
         margin: 0;
@@ -48,21 +69,22 @@ export default {
     }
 
     .brand-logo {
-        padding-left: 60px;
+        padding-left: 20px;
         line-height: 50px;
-        font-size: 18px;
+        font-size: 24px;
         font-weight: bold;
         color: transparent;
         background-image: linear-gradient(to top, #768adb, #5d71bf);
-        -webkit-background-clip: text;
+        background-clip: text;
     }
 
     .menu-item {
         display: flex;
         cursor: pointer;
         padding: 14px 0;
-        transition: .25s transform ease-in;
         font-size: 16px;
+        transition: .25s all ease-in;
+        color: #647783;
 
         .left-icon {
             width: 60px;
@@ -71,7 +93,7 @@ export default {
 
 
         &.active{
-            color: #647783;
+            color: #2970ff;
             font-weight: bold;
         }
 

@@ -4,10 +4,10 @@ import VueRouter from "vue-router";
 import router from "@/router/index.js";
 import "normalize.css";
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faSun, faCalendarAlt, faCheckDouble, faClock, faTasks } from "@fortawesome/free-solid-svg-icons"
+import { faSun, faCalendarAlt, faCheckDouble, faClock, faTasks, faCheckCircle } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 
-library.add(faSun, faCalendarAlt, faCheckDouble, faClock, faTasks);
+library.add(faSun, faCalendarAlt, faCheckDouble, faClock, faTasks, faCheckCircle);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(VueRouter);
 
