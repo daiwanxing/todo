@@ -1,12 +1,12 @@
 <template>
     <main>
-        <welcome v-if="loading"></welcome>
-        <router-view v-else></router-view>
+        <transition enter-active-class="animate__fadeIn" leave-active-class="animate__fadeOut">
+            <router-view class="animate__animated"></router-view>
+        </transition>
     </main>
 </template>
 
 <script>
-import welcome from "@/pages/welcome/welcome.vue";
 
 export default {
     name: "App",
@@ -19,9 +19,6 @@ export default {
         setTimeout(() => {
             this.loading = false;
         }, 1000);
-    },
-    components: {
-        welcome
     }
 }
 </script>

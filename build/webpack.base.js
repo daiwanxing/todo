@@ -38,6 +38,14 @@ module.exports = {
                     'sass-loader',
                     'postcss-loader'
                 ]
+            },
+            {
+                test: /.js$/,
+                exclude: /node_modules/,
+                include: /src/,
+                use: [
+                    'babel-loader'
+                ]
             }
         ]
     },

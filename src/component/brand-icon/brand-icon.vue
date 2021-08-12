@@ -17,7 +17,6 @@
     height: 100%;
 }
 
-
 .brand-icon {
     position: absolute;
     left: 0;

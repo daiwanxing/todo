@@ -7,7 +7,7 @@ const { Configuration } = require("webpack");
  * @type {Configuration}
  */
 module.exports = merge(baseBuildConf, {
-    devtool: "cheap-module-source-map",
+    devtool: "source-map",
     devServer: {
         overlay: {
             warnings: true,

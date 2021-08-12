@@ -39,6 +39,7 @@ export default {
     methods: {
         switchHandler (tog) {
             this.activeIndex = tog;
+            this.$notify();
         }
     }
 }
@@ -62,7 +63,7 @@ export default {
     }
 
     .icon-color {
-        color: #768adb;
+        color: var(--logoBarLeft);
     }
 
     .base-menu {
@@ -79,7 +80,7 @@ export default {
         font-size: 24px;
         font-weight: bold;
         color: transparent;
-        background-image: linear-gradient(to top, #768adb, #5d71bf);
+        background-color: var(--logoBarLeft);
         background-clip: text;
     }
 

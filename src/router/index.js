@@ -3,16 +3,12 @@ import VueRouter from "vue-router";
 
 export default new VueRouter({
     base: "/",
+    mode: "hash",
     routes: [
         {
             name: "root",
             path: "/",
-            redirect: "/app"
-        },
-        {
-            name: "app",
-            path: "/app",
-            component: () => import('@/pages/Root.vue')
+            component: () => import('@/pages/index.vue')
         },
         {
             name: "entry",

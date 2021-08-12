@@ -1,3 +1,13 @@
-const path = require('path');
+import welcomePage from "@/component/welcome/welcome.vue";
 
-console.log(path.join(__dirname, '..', 'main.js'));
+
+export function asyncComponent (resolveCpt) {
+    const asyncHandler = {
+        component: resolveCpt,
+        loading: welcomePage,
+        delay: 10000,
+        timeout: 2000
+    }
+
+    return asyncHandler
+}
