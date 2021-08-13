@@ -8,7 +8,15 @@ export default new VueRouter({
         {
             name: "root",
             path: "/",
-            component: () => import('@/pages/index.vue')
+            component: () => import('@/pages/Root.vue'),
+            redirect: "/today",
+            children: [
+                {
+                    name: "today",
+                    path: "/today",
+                    component: () => import('@/pages/today/today.vue')
+                }
+            ]
         },
         {
             name: "entry",
