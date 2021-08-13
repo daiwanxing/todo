@@ -21,10 +21,6 @@ export default {
       // 总而言之，vue-router中使用Loading-component是无法被shown的，异步组件一旦被resolve，就会立即rendering，
       // 此时loading组件没有出现的必要了
     }),
-  },
-  beforeRouteEnter (to, from, next) {
-      console.log('be resolve')
-      next();
   }
 };
 </script>

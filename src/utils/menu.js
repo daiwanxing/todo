@@ -8,7 +8,7 @@ export const baseMenu = [
     {
         id: 2,
         name: "重要",
-        icon: "check-double",
+        icon: "bolt",
         works: 0
     },
     {

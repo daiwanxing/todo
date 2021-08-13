@@ -19,8 +19,14 @@
                 {{ item.name }} 
             </li>
         </ul>
+        <div class="create-item-button">
+            <font-awesome-icon icon="plus" class="create-item-left-icon" />
+            <font-awesome-icon icon="folder-plus" class="create-item-right-icon" />
+        </div>
     </aside>
-    <div class="body-content"></div>
+    <div class="body-content">
+        <router-view></router-view>
+    </div>
   </section>
 </template>
 
@@ -52,11 +58,35 @@ export default {
   height: 100%;
 
   aside {
+    position: relative;
     height: 100%;
     width: 300px;
     background-color: #feffff;
     overflow-y: auto;
     user-select: none;
+
+    .create-item-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+        height: 46px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        line-height: 45px;
+        border-top: 1px solid #ededed;
+        color: #737373;
+        cursor: pointer;
+
+        &::after {
+            content: "新建列表";
+            position: absolute;
+            left: 60px;
+            margin: auto;
+        }
+    }
     
     .icon-box {
         padding-right: 20px;

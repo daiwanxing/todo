@@ -9,17 +9,7 @@
 <script>
 
 export default {
-    name: "App",
-    data () {
-        return {
-            loading: true
-        }
-    },
-    mounted () {
-        setTimeout(() => {
-            this.loading = false;
-        }, 1000);
-    }
+    name: "App"
 }
 </script>
 
