@@ -15,6 +15,11 @@ export default new VueRouter({
                     name: "today",
                     path: "/today",
                     component: () => import('@/pages/today/today.vue')
+                },
+                {
+                    name: "priority",
+                    path: "/priority",
+                    component: () => import('@/pages/priority/priority.vue')
                 }
             ]
         },

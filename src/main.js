@@ -5,6 +5,7 @@ import router from "@/router/index";
 import "normalize.css";
 import "./utils/fontAwesomeIcon";
 import "animate.css";
+import "@/theme/skin-theme.scss";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);

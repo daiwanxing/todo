@@ -1,0 +1,29 @@
+[data-theme='purple'] {
+     --menuActive: rgb(92, 116, 194);
+     --panelBg: linear-gradient(to bottom, rgb(92,112,190) 20%, rgb(120,140,222))
+}
+
+[data-theme='pink'] {
+    --menuAcitve: ''
+
+}
+
+[data-theme='light-green'] {
+    --menuAcitve: ''
+
+}
+
+[data-theme='dark-green'] {
+    --menuAcitve: ''
+
+}
+
+[data-theme = 'dark-gray'] {
+    --menuAcitve: ''
+}
+
+:root {
+    --headerTitle: #fff;
+    --headerSubTitle: #fff; 
+    --menuActive: #2970ff;
+}

@@ -1,5 +1,5 @@
 <template>
-  <section class="todo-container">
+  <section class="todo-container" :data-theme="theme">
     <!-- 左侧列表 -->
     <aside>
       <div class="brand-logo">
@@ -42,15 +42,19 @@ export default {
       loading: false,
       activeIndex: -1,
       baseMenu,
+      theme: "purple"
     };
+  },
+  created () {
+    const res = baseMenu.filter(menu => menu.path === this.$route.path);
+       if (res.length > 0) {
+           this.theme = res[0].theme;
+       }
   },
   methods: {
     // 创建handle
     createHandler() {},
-  },
-  beforeRouteEnter(to, from, next) {
-    next();
-  },
+  }
 };
 </script>
 
@@ -138,7 +142,7 @@ export default {
       }
 
       .router-link-exact-active {
-        color: #2970ff;
+        color: var(--menuActive);
         font-weight: bold;
       }
 
@@ -153,9 +157,7 @@ export default {
   }
 
   .body-content {
-    padding: 60px 50px;
     flex: 1;
-    background-color: #ededed;
   }
 }
 
