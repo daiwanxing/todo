@@ -16,7 +16,7 @@
     },
     "extends": [
          // vue官方的 lint插件
-        "plugin:vue/recommended",
+        "plugin:vue/essential",
         "plugin:import/recommended"
     ],
     "plugins": [

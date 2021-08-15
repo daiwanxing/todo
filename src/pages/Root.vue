@@ -10,9 +10,9 @@
       </div>
       <ul class="base-menu">
         <li
-          class="menu-item"
           v-for="item in baseMenu"
           :key="item.id"
+          class="menu-item"
         >
           <router-link :to="item.path" class="menu-link">
             <div class="left-icon"><font-awesome-icon :icon="item.icon" /></div>
