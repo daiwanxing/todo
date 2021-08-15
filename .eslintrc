@@ -1,0 +1,33 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "impliedStrict": true
+        }
+    },
+    "rules": {
+        "import/no-named-as-default": 0,
+        "import/no-unresolved": 0,
+        "import/named": 0,
+        "import/no-named-as-default-member": 0,
+        "semi": ["warn", "always"],
+        "quotes": ["off", "double"]
+    },
+    "extends": [
+         // vue官方的 lint插件
+        "plugin:vue/recommended",
+        "plugin:import/recommended"
+    ],
+    "plugins": [
+        "import"
+    ],
+    "settings": {
+        "import/extensions": [
+            ".js"
+        ],
+        "import/ignore": [
+            "node_modules"
+        ]
+    }
+}

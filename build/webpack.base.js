@@ -1,5 +1,6 @@
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const { VueLoaderPlugin  } = require("vue-loader");
+const EslintPlugin = require("eslint-webpack-plugin");
+const { VueLoaderPlugin } = require("vue-loader");
 const path = require("path");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const { Configuration } = require("webpack");
@@ -49,10 +50,10 @@ module.exports = {
                 ]
             },
             {
-                test: /.svg|jpg|png|jpeg$/,
+                test: /\.(svg|jpg|png|jpeg|gif)$/,
                 parser: {
                     dataUrlCondition: {
-                        maxSize: 1024 * 4 
+                        maxSize: 1024 * 4
                     }
                 },
                 type: "asset" // 自动在resource 和 Inline之间进行选择，如果小于4kb，生成 data URI,否则打包成一个文件
@@ -60,6 +61,7 @@ module.exports = {
         ]
     },
     plugins: [
+        new EslintPlugin(),
         new VueLoaderPlugin(),
         new CleanWebpackPlugin(),
         new htmlWebpackPlugin({
@@ -81,5 +83,10 @@ module.exports = {
             minSize: 20000,
             minChunks: 1
         }
-    }
+    },
+    // ignoreWarnings: [
+    //     {
+    //         message: /Can't import the named export/
+    //     }
+    // ]
 }

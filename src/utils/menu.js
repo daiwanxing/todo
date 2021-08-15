@@ -39,4 +39,4 @@ export const baseMenu = [
         path: '/task',
         theme: "purple"
     }
-]
+];

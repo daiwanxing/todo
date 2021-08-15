@@ -6,9 +6,9 @@ import "normalize.css";
 import "./utils/fontAwesomeIcon";
 import "animate.css";
 import "@/theme/skin-theme.scss";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-Vue.component('font-awesome-icon', FontAwesomeIcon);
+Vue.component("FontAwesomeIcon", FontAwesomeIcon);
 Vue.use(VueRouter);
 
 const options = {
