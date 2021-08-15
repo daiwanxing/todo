@@ -14,7 +14,8 @@ module.exports = {
     output: {
         path: path.join(__dirname, '..', 'dist'),
         filename: "[name].[contenthash:8].js",
-        chunkFilename: '[name].js'
+        chunkFilename: '[name].js',
+        assetModuleFilename: 'assets/[hash][ext][query]'
     },
     module: {
         rules: [
@@ -46,6 +47,15 @@ module.exports = {
                 use: [
                     'babel-loader'
                 ]
+            },
+            {
+                test: /.svg|jpg|png|jpeg$/,
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 1024 * 4 
+                    }
+                },
+                type: "asset" // 自动在resource 和 Inline之间进行选择，如果小于4kb，生成 data URI,否则打包成一个文件
             }
         ]
     },
