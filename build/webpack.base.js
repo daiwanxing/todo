@@ -74,14 +74,14 @@ module.exports = mode => {
         target: "web",
         resolve: {
             alias: {
-                vue: mode == 'production' ? 'vue/dist/vue.min.js' : 'vue/dist/vue.js',
+                'vue': mode == 'production' ? 'vue/dist/vue.min.js' : 'vue/dist/vue.js',
                 '@': path.join(__dirname, '..', 'src')
             }
         },
         optimization: {
             // chunk 分割
             splitChunks: {
-                chunks: "async", // all async all 是将所有的chunk都单独打包
+                chunks: "all", // all async all 是将所有的chunk都单独打包
                 minSize: 20000,
                 minChunks: 1
             }

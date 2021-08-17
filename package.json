@@ -19,11 +19,15 @@
   "author": "wonder-dai",
   "license": "MIT",
   "dependencies": {
+    "@babel/runtime": "^7.15.3",
     "@commitlint/cli": "^13.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@vue/babel-helper-vue-jsx-merge-props": "^1.2.1",
+    "@vue/babel-preset-jsx": "^1.2.4",
     "animate.css": "^4.1.1",
+    "core-js": "^3.16.1",
     "dexie": "^3.0.3",
     "eslint": "^7.32.0",
     "mini-css-extract-plugin": "^1.6.2",
@@ -35,6 +39,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@babel/plugin-transform-runtime": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@commitlint/config-conventional": "^13.1.0",
     "autoprefixer": "^10.3.1",

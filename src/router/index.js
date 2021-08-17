@@ -20,6 +20,11 @@ export default new VueRouter({
                     name: "priority",
                     path: "/priority",
                     component: () => import('@/pages/priority/priority.vue')
+                },
+                {
+                    name: "/plan",
+                    path: "plan",
+                    component: () => import('@/pages/plan/plan.vue')
                 }
             ]
         },
