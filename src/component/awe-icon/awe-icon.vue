@@ -6,7 +6,7 @@ export default {
     name: "awe-icon",
     props: {
         size: {
-            type: Number | String,
+            type:  String,
             default: "1em",
             validator (val) {
             }
