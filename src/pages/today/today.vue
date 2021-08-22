@@ -16,13 +16,12 @@ export default {
     },
     computed: {
         todayDate () {
-            const weekData = ['一', '二', '三', '四', '五', '六', '日']
+            const weekData = ['日', '一', '二', '三', '四', '五', '六'];
             const date = new Date();
-            const month = date.getMonth();
+            const month = date.getMonth() + 1;
             const day = date.getDate();
             const weekDay = date.getDay();
-
-            return `${month}月${day}日，星期${weekData[weekDay - 1]}`
+            return `${month}月${day}日，星期${weekData[weekDay]}`;
         }
     }
 }

@@ -7,6 +7,7 @@ import "./utils/fontAwesomeIcon";
 import "animate.css";
 import "@/theme/skin-theme.scss";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import "core-js/es/object/assign";
 
 Vue.component("FontAwesomeIcon", FontAwesomeIcon);
 Vue.use(VueRouter);

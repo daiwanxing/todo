@@ -1,11 +1,12 @@
 module.exports = api => {
     api.cache(true);
     return {
+        exclude: /node_modules/,
         plugins: [
             [
                 "@babel/plugin-transform-runtime",
                 {
-                    corejs: 2
+                    corejs: 3
                 }
             ]
         ],

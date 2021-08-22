@@ -1,14 +1,17 @@
 <script>
-import listPanel from "@/component/list-panel/list-panel.vue";
-import AMapLoader, { load } from "@amap/amap-jsapi-loader";
+import AMapLoader from "@amap/amap-jsapi-loader";
+import AMap from "@/utils/AMap.js";
+
+const map = null;
 
 export default {
   name: "plan",
-  data() {
-    return {
-      MapCtr: null,
-      map: null,
-    };
+  data () {
+    const data = {};
+    Object.defineProperty(data, "map", {
+      configurable: false
+    });
+    return data;
   },
   methods: {
     backCenter () {
@@ -17,29 +20,30 @@ export default {
     useMouseTool (AMap) {
       return new AMap.MouseTool(this.map);
     },
-    initMap() {
-      const loadOptions = {
-        key: "172e1009e7cb82791898756e6d0ba14b",
-        version: "2.0",
-        plugins: ['AMap.PolyEditor', "AMap.Scale", "AMap.MouseTool"]
-      };
-      AMapLoader.load(loadOptions).then((AMap) => {
-        this.MapCtr = AMap;
-        
-        this.map = new AMap.Map("map-container", {
+    async initMap() {
+      const map = new AMap({
+        plugins: ['AMap.Scale', 'AMap.PolygonEditor', 'AMap.MouseTool']
+      });
+
+      this.$once("hook:beforeDestroy", function () {
+        map.unMountMap();
+      });
+
+      await map.mountMap("map-container", {
           center: [116.400274, 39.905812],
           zoom: 14,
-          animateEnable: false
-        });
-        const path = [
-            [116.403322, 39.920255],
-            [116.410703, 39.897555],
-            [116.402292, 39.892353],
-            [116.389846, 39.891365]
-        ];
+      });
+      const { MapCtr, mapInstance } = map;
+      this.map = mapInstance;
+      const path = [
+          [116.403322, 39.920255],
+          [116.410703, 39.897555],
+          [116.402292, 39.892353],
+          [116.389846, 39.891365]
+      ];
 
-        const mouseTool = this.useMouseTool(AMap);
-
+        const mouseTool = new MapCtr.MouseTool(mapInstance);
+        // 用mouseTool.polygon通过传入的options配置绘制的多边形样式
         const drawPolygon = mouseTool.polygon({
           strokeColor: "#FF33FF",
           fillColor: "#1791fc",
@@ -49,17 +53,19 @@ export default {
 
         const overlay  = [];
         mouseTool.on("draw", function (e) {
-            console.log(e.obj.getPath());
-            overlay.push(e.obj);
+            // console.log(e.obj.getPath());
+            // overlay.push(e.obj);
+            mouseTool.close();
         });
 
         mouseTool.on("end", function () {
-          console.log("绘制结束");
+          mouseTool.close();
         });
 
-        // --------------------
-        // 构造一个多边形
-        const polygon = new AMap.Polygon({
+        mapInstance.on("zoomchange", (e) => {
+          // 监听地图缩放
+        });
+        const polygon = new map.MapCtr.Polygon({
           path: path,
           strokeColor: "#FF33FF",
           strokeWeight: 6,
@@ -69,22 +75,26 @@ export default {
           zIndex: 50,
         });
 
-        const polygonEditor = new AMap.PolyEditor(this.map, polygon);
+        const handler = () => {
+          alert("you are click me");
+        };
+        polygon.on("click", handler);
+        map.overlayMap.set(polygon, {
+          name: "click",
+          handler
+        });
 
-        polygonEditor.open();
-        this.map.addControl(new AMap.Scale());
+        // const polygonEditor = new map.MapCtr.PolygonEditor(map.mapInstance, polygon);
+        // polygonEditor.open();
+        map.addControls("Scale");
 
-        this.map.add(polygon); // add方法是添加覆盖物, addControl是添加控件
-        this.map.setFitView([polygon]);
-      });
+        map.mapInstance.add(polygon); // add方法是添加覆盖物, addControl是添加控件
+        map.mapInstance.setFitView([polygon]);
     },
   },
   mounted() {
+    console.log(this.map);
     this.initMap();
-  },
-  beforeDestroy() {
-    this.map.destroy();
-    this.map = null;
   },
   render() {
     return (

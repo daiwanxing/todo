@@ -74,7 +74,7 @@ module.exports = mode => {
         target: "web",
         resolve: {
             alias: {
-                'vue': mode == 'production' ? 'vue/dist/vue.min.js' : 'vue/dist/vue.js',
+                'vue': mode === 'production' ? 'vue/dist/vue.min.js' : 'vue/dist/vue.js',
                 '@': path.join(__dirname, '..', 'src')
             }
         },
